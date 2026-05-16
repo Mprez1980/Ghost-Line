@@ -1,0 +1,36 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at top, #12082a 0%, #080614 60%);
+  color: #e8e0f5;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.game-header {
+  text-align: center;
+  padding: 2.5rem 1rem 1rem;
+  border-bottom: 1px solid rgba(160, 100, 255, 0.2);
+}
+
+.game-header h1 {
+  font-size: 2rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #d4b8ff;
+  margin: 0 0 0.3rem;
+  font-weight: 400;
+}
+
+.chapter-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: rgba(180, 160, 210, 0.55);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem 4rem;
+}
