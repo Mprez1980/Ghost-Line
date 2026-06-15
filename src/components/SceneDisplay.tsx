@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import scenes from '../story/chapter1';
-import { resolveChoiceFromText } from '../services/claudeService';
+import { resolveChoiceFromTextLocal } from '../services/choiceMatcher';
 import type { Scene } from '../story/types';
 import './SceneDisplay.css';
 
-export default function SceneDisplay() {
-  const { state, advanceTo, reset } = useGame();
+interface SceneDisplayProps {
+  showHistory: boolean;
+  onCloseHistory: () => void;
+}
+
+export default function SceneDisplay({ showHistory, onCloseHistory }: SceneDisplayProps) {
+  const { state, advanceTo, reset, getDialogueHistory } = useGame();
   const [freeInput, setFreeInput] = useState('');
   const [resolving, setResolving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,8 +29,12 @@ export default function SceneDisplay() {
     if (!freeInput.trim() || !currentScene.choices) return;
     setResolving(true);
     setError(null);
+    
+    // Simulate brief AI resolution time for visual feedback
+    await new Promise(resolve => setTimeout(resolve, 400));
+    
     try {
-      const choiceId = await resolveChoiceFromText(currentScene, freeInput.trim());
+      const choiceId = resolveChoiceFromTextLocal(currentScene, freeInput.trim());
       if (choiceId) {
         const choice = currentScene.choices.find(c => c.id === choiceId)!;
         handleChoice(choice.id, choice.next);
@@ -34,7 +43,7 @@ export default function SceneDisplay() {
         setError("I couldn't match that to a choice. Try rephrasing, or pick a numbered option below.");
       }
     } catch {
-      setError('Something went wrong connecting to the AI. Please try again.');
+      setError('Something went wrong. Please try again.');
     } finally {
       setResolving(false);
     }
@@ -44,16 +53,18 @@ export default function SceneDisplay() {
     return (
       <div className="scene-error">
         <p>Scene not found: {state.currentSceneId}</p>
-        <button onClick={reset}>Restart</button>
+        <button className="btn-restart" onClick={reset}>Restart</button>
       </div>
     );
   }
 
   const isEnded = !scene.choices && !scene.next;
+  const dialogueHistory = getDialogueHistory();
 
   return (
     <div className="scene">
-      <div className="dialogue-box">
+      {/* Dynamic Key forces dialogue-box to re-mount, triggering animations */}
+      <div className="dialogue-box" key={state.currentSceneId}>
         {scene.lines.map((line, i) => {
           if (line.speaker === 'narration') {
             return <p key={i} className="narration">{line.text}</p>;
@@ -69,8 +80,8 @@ export default function SceneDisplay() {
             );
           }
           return (
-            <div key={i} className="dialogue-line">
-              <span className={`speaker speaker-${line.speaker.toLowerCase()}`}>{line.speaker}</span>
+            <div key={i} className="dialogue-line" style={{ animationDelay: `${i * 150}ms` }}>
+              <span className={`speaker speaker-${line.speaker.toLowerCase().split(' ')[0]}`}>{line.speaker}</span>
               <span className="dialogue-text">{line.text}</span>
             </div>
           );
@@ -110,6 +121,7 @@ export default function SceneDisplay() {
                   className="btn-choice"
                   onClick={() => handleChoice(c.id, c.next)}
                   disabled={resolving}
+                  style={{ animationDelay: `${i * 100}ms` }}
                 >
                   {i + 1}. {c.label}
                 </button>
@@ -118,6 +130,45 @@ export default function SceneDisplay() {
           </>
         )}
       </div>
+
+      {/* Slide-out Dialogue History Log Drawer */}
+      {showHistory && (
+        <div className="history-overlay" onClick={onCloseHistory}>
+          <div className="history-panel" onClick={e => e.stopPropagation()}>
+            <div className="history-header">
+              <h2>Dialogue History</h2>
+              <button className="btn-close" onClick={onCloseHistory} title="Close Log">
+                &times;
+              </button>
+            </div>
+            <div className="history-body">
+              {dialogueHistory.length === 0 ? (
+                <p className="history-empty">No dialogue logged yet.</p>
+              ) : (
+                dialogueHistory.map((line, i) => {
+                  let rowClass = 'dialogue';
+                  if (line.speaker === 'narration') rowClass = 'narration';
+                  else if (line.speaker === 'system') rowClass = 'system-msg';
+                  else if (line.speaker === 'Aster (internal)') rowClass = 'internal-monologue';
+
+                  return (
+                    <div key={i} className={`history-row ${rowClass}`}>
+                      {line.speaker !== 'narration' && line.speaker !== 'system' && (
+                        <span className={`speaker speaker-${line.speaker.toLowerCase().split(' ')[0]}`}>
+                          {line.speaker}
+                        </span>
+                      )}
+                      <p className={line.speaker === 'narration' || line.speaker === 'system' ? '' : 'dialogue-text'}>
+                        {line.speaker === 'Aster (internal)' ? <em>{line.text}</em> : line.text}
+                      </p>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
