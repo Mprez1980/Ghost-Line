@@ -4,6 +4,7 @@ const scenes: Record<string, Scene> = {
   // ── Scene 1: The Museum of Echoes ───────────────────────────────────────
   museum_opening: {
     id: 'museum_opening',
+    visualSummary: 'SIGNAL: STABLE // ARCHIVE: MUSEUM HALL // VIOLET RADIANCE DETECTED',
     lines: [
       { speaker: 'narration', text: 'The lights flicker. The air hums. The Museum of Echoes feels like it\'s holding its breath.' },
       { speaker: 'narration', text: 'Aster stands in the center hall, surrounded by fractured holograms and half-collapsed memory displays.' },
@@ -30,6 +31,7 @@ const scenes: Record<string, Scene> = {
   // ── Scene 2: The Choice ──────────────────────────────────────────────────
   the_choice: {
     id: 'the_choice',
+    visualSummary: 'INTERFACE: ACTIVE // ENTITIES: VALE & ROOK // TENSION LEVEL: CRITICAL',
     lines: [
       { speaker: 'Vale', text: '"Aster. We don\'t have time. They took her. They took my daughter. We have to move. Now."' },
       { speaker: 'narration', text: 'His voice cracks on the last word. He clutches his heavy tactical rifle.' },
@@ -51,6 +53,7 @@ const scenes: Record<string, Scene> = {
   // ── Vale Path ────────────────────────────────────────────────────────────
   vale_scene3: {
     id: 'vale_scene3',
+    visualSummary: 'RECONSTRUCTION: RAPID MOVEMENT // SECTOR: BROKEN CORRIDOR // SURGE DETECTED',
     lines: [
       { speaker: 'narration', text: 'Vale moves fast, almost too fast, pushing through the museum\'s broken corridors.' },
       { speaker: 'Vale', text: '"She\'s just a kid, Aster. She didn\'t ask for any of this. She didn\'t deserve it."' },
@@ -72,6 +75,7 @@ const scenes: Record<string, Scene> = {
 
   vale_scene4: {
     id: 'vale_scene4',
+    visualSummary: 'SIGNAL: WEAK // ENVIRONMENT: LOW LIGHT // RESONANCE: SPIKING',
     lines: [
       { speaker: 'narration', text: 'The floor cracks. The lights die, replaced by a flickering violet emergency glow.' },
       { speaker: 'Vale', text: '"We\'re almost there. Just hold on. If I lose her... I lose everything."' },
@@ -90,6 +94,7 @@ const scenes: Record<string, Scene> = {
   // ── Rook Path ────────────────────────────────────────────────────────────
   rook_scene3: {
     id: 'rook_scene3',
+    visualSummary: 'RECONSTRUCTION: MEASURED PACE // SECTOR: TACTICAL OVERLOOK // TARGETS: MULTIPLE',
     lines: [
       { speaker: 'narration', text: 'Rook walks with purpose — every step measured, every breath controlled.' },
       { speaker: 'Rook', text: '"This wasn\'t random. This was a message. They want us scared. They want us reactive. We can\'t give them that."' },
@@ -111,6 +116,7 @@ const scenes: Record<string, Scene> = {
 
   rook_scene4: {
     id: 'rook_scene4',
+    visualSummary: 'RECONSTRUCTION: ANALYSIS MODE // OBJECT: RESONANCE NODE // GEOMETRY: CORRUPTED',
     lines: [
       { speaker: 'narration', text: 'Rook kneels beside a shattered resonance node.' },
       { speaker: 'Rook', text: '"See this? They overloaded the emotional geometry. This wasn\'t meant to kill — it was meant to erase. To make us forget she ever existed."' },
@@ -130,6 +136,7 @@ const scenes: Record<string, Scene> = {
   // ── The Memory Pier (convergence) ────────────────────────────────────────
   memory_pier: {
     id: 'memory_pier',
+    visualSummary: 'SIGNAL: UNSTABLE // ENVIRONMENT: OCEAN VOID // CRIMSON LIGHT DETECTED',
     lines: [
       { speaker: 'narration', text: 'The world goes quiet. The pier stretches out into an endless grey void.' },
       { speaker: 'narration', text: 'The ocean glitches, waves freezing in mid-air. The sky fractures into geometric patterns.' },
@@ -151,6 +158,7 @@ const scenes: Record<string, Scene> = {
   // ── Scene 5: Combat Ambush ───────────────────────────────────────────────
   combat_encounter: {
     id: 'combat_encounter',
+    visualSummary: 'THREAT: HIGH // ENTITIES: CONCLAVE ENFORCERS // COMBAT MODE: ENGAGED',
     lines: [
       { speaker: 'narration', text: 'Footsteps thunder down the pier. Conclave Enforcers emerge from the crimson fog, heavy weapons humming with lethal energy.' },
       { speaker: 'Vale', text: '"It\'s an ambush! Enforcers! Protect Aster!"' },
@@ -175,6 +183,7 @@ const scenes: Record<string, Scene> = {
   // ── Scene 6: Suppression Blast ───────────────────────────────────────────
   combat_defeat: {
     id: 'combat_defeat',
+    visualSummary: 'ERROR: NEURAL OVERLOAD // SIGNAL: TERMINATED // VISUAL DATA LOST',
     lines: [
       { speaker: 'narration', text: 'You move to act, but the Enforcers discharge a high-frequency suppression field.' },
       { speaker: 'narration', text: 'A massive sound wave hits you, shaking the entire pier. The air crackles with static electricity.' },
@@ -197,6 +206,7 @@ const scenes: Record<string, Scene> = {
   // ── Scene 7: The Trap ───────────────────────────────────────────────────
   prison_trap: {
     id: 'prison_trap',
+    visualSummary: 'SIGNAL: RECOVERING // STATUS: PRISONER // ENVIRONMENT: LOCKDOWN CELL',
     lines: [
       { speaker: 'narration', text: 'Aster slowly opens their eyes. A throbbing headache beats behind their temples, and the air smells of ozone.' },
       { speaker: 'Aster (internal)', text: 'What happened? My head... where are we? This isn\'t the pier.' },
@@ -222,6 +232,7 @@ const scenes: Record<string, Scene> = {
   // ── Prison Path: Vale ────────────────────────────────────────────────────
   prison_vale_path: {
     id: 'prison_vale_path',
+    visualSummary: 'RECONSTRUCTION: MECHANICAL FAILURE // STATUS: STEAM VENTING // TEMP: RISING',
     lines: [
       { speaker: 'narration', text: 'Vale smashes his heavy armored gauntlet into the emitter\'s ventilation panel. Sparking fluid sprays out.' },
       { speaker: 'Vale', text: '"The casing is loose! But the security overrides are starting to vent superheated steam. Aster, we need to blow this core now or we\'ll roast!"' },
@@ -245,6 +256,7 @@ const scenes: Record<string, Scene> = {
   // ── Prison Path: Rook ────────────────────────────────────────────────────
   prison_rook_path: {
     id: 'prison_rook_path',
+    visualSummary: 'RECONSTRUCTION: HARMONIC OVERRIDE // FREQUENCY: SYNCING // GRID: UNSTABLE',
     lines: [
       { speaker: 'Rook', text: '"The console is running a tri-wave encryption. Standard brute force will lock it forever. We need to match the harmonic frequencies."' },
       { speaker: 'Aster', text: '"My Faith Shard... it\'s vibrating. I can try to tune its resonance to match the lock."' },
@@ -268,6 +280,7 @@ const scenes: Record<string, Scene> = {
   // ── Prison Escape: Vale ──────────────────────────────────────────────────
   prison_escape_vale: {
     id: 'prison_escape_vale',
+    visualSummary: 'RECONSTRUCTION: BARRIER DOWN // STATUS: STEAM CLEARING // EXIT: FOUND',
     lines: [
       { speaker: 'narration', text: 'With a metallic screech, the emitter panel ruptures. The red energy grid flickers and dies.' },
       { speaker: 'Vale', text: '"Told you. Nothing a little pressure can\'t fix. Let\'s get out of here before the steam blinds us."' },
@@ -288,6 +301,7 @@ const scenes: Record<string, Scene> = {
   // ── Prison Escape: Rook ──────────────────────────────────────────────────
   prison_escape_rook: {
     id: 'prison_escape_rook',
+    visualSummary: 'RECONSTRUCTION: LOCK DISENGAGED // STATUS: STEALTH ACTIVE // EXIT: FOUND',
     lines: [
       { speaker: 'narration', text: 'The shard pulses with a pure chime. The red lasers cycle down to a soft blue, and the lock clicks open.' },
       { speaker: 'Rook', text: '"Perfect calibration. The grid didn\'t even trigger an alarm. We have the advantage of stealth."' },
@@ -308,6 +322,7 @@ const scenes: Record<string, Scene> = {
   // ── Escape Convergence ───────────────────────────────────────────────────
   prison_escape_convergence: {
     id: 'prison_escape_convergence',
+    visualSummary: 'INTERFACE: EXTERNAL TERMINAL // SIGNAL: INCOMING MESSAGE // SOURCE: W',
     lines: [
       { speaker: 'narration', text: 'They slip past the deactivated barrier into a long, dimly lit security corridor.' },
       { speaker: 'Aster', text: '"Look at that terminal. Someone left a message on the screen."' },
@@ -329,6 +344,7 @@ const scenes: Record<string, Scene> = {
   // ── NEW SEQUENCE: Heading to the Archives ────────────────────────────────
   archives_approach: {
     id: 'archives_approach',
+    visualSummary: 'ENVIRONMENT: LOWER ARCHIVES // STATUS: CRYOGENIC DUST // ENTITY: RUNIC DOOR',
     lines: [
       { speaker: 'narration', text: 'The descent into the lower levels is steep and damp. The air grows cold, smelling of ancient dust and ozone.' },
       { speaker: 'Vale', text: '"I don\'t like this. It\'s too quiet. Even for a graveyard of memories."' },
@@ -350,6 +366,7 @@ const scenes: Record<string, Scene> = {
 
   archives_interior: {
     id: 'archives_interior',
+    visualSummary: 'RECONSTRUCTION: CRYSTAL HALL // OBJECTS: MEMORY SEEDS // ENTITY: UNKNOWN SHADOW',
     lines: [
       { speaker: 'narration', text: 'The circular door grinds open, revealing a vast hall filled with towering crystal pillars.' },
       { speaker: 'narration', text: 'Each pillar glows with a different hue, housing thousands of flickering memory-seeds.' },
@@ -374,6 +391,7 @@ const scenes: Record<string, Scene> = {
 
   archives_revelation: {
     id: 'archives_revelation',
+    visualSummary: 'UPLINK: STABLE // ENTITY: WISP // STATUS: NEURAL SYNC ACTIVE',
     lines: [
       { speaker: 'narration', text: 'The shadow coalesces into a familiar form — a young girl, semi-transparent, pulsing with violet light.' },
       { speaker: 'Wisp', text: '"Aster... you came. I knew you would."' },
@@ -398,6 +416,7 @@ const scenes: Record<string, Scene> = {
 
   archives_final_stand: {
     id: 'archives_final_stand',
+    visualSummary: 'THREAT: EXTREME // ENTITY: PRIME ENFORCER // RESONANCE: LETHAL',
     lines: [
       { speaker: 'narration', text: 'A heavy thud echoes through the Archives. The entrance door is blasted off its hinges.' },
       { speaker: 'narration', text: 'The Prime Enforcer steps through, clad in black-and-gold ceramic armor, wielding a resonance blade that hums with a terrifying frequency.' },

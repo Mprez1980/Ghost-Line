@@ -119,6 +119,8 @@
   max-width: 280px;
   position: sticky;
   top: 90px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Responsive adjustments */

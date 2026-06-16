@@ -29,6 +29,10 @@ export interface Scene {
   /** Scene to go to automatically (no choice) */
   next?: string;
   positions?: CharacterPosition[];
+  /** High-level visual description for the neural uplink */
+  visualSummary?: string;
+  /** Optional URL for a physical illustration */
+  illustration?: string;
 }
 
 export interface GameState {

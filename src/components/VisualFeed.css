@@ -1,0 +1,130 @@
+.visual-feed {
+  background: var(--theme-panel-bg);
+  border: 1px solid var(--theme-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px var(--theme-glow);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feed-header {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.8rem;
+  right: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--theme-primary);
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.feed-beacon {
+  width: 6px;
+  height: 6px;
+  background: var(--theme-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--theme-primary);
+  animation: pulse 1.5s infinite;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.feed-content {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+  z-index: 1;
+}
+
+.visual-summary {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(var(--theme-primary-rgb), 0.5);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.feed-glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 3px 100%;
+  z-index: 2;
+  opacity: 0.4;
+}
+
+.feed-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(var(--theme-primary-rgb), 0.15);
+  opacity: 0.5;
+  animation: scanline 4s linear infinite;
+  z-index: 3;
+}
+
+.feed-footer {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.8rem;
+  right: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  color: var(--theme-primary);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.4; transform: scale(0.9); }
+}
+
+@keyframes scanline {
+  0% { top: -2%; }
+  100% { top: 100%; }
+}
+
+/* Theme specific adjustments for the feed */
+.theme-prison .visual-summary {
+  color: #ff9999;
+}
+
+.theme-terminal .visual-summary {
+  color: #aaffaa;
+}
+
+.theme-vale .visual-summary {
+  color: #ffccaa;
+}

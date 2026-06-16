@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { GameProvider, useGame } from './context/GameContext';
 import SceneDisplay from './components/SceneDisplay';
 import TacticalScanner from './components/TacticalScanner';
+import VisualFeed from './components/VisualFeed';
 import scenes from './story/chapter1';
 import './App.css';
 
@@ -29,6 +30,7 @@ function GameShell() {
 
   const activeScene = scenes[sceneId];
   const positions = activeScene?.positions || [];
+  const visualSummary = activeScene?.visualSummary;
 
   return (
     <div className={`app-shell ${themeClass}`}>
@@ -59,6 +61,7 @@ function GameShell() {
           <SceneDisplay showHistory={showHistory} onCloseHistory={() => setShowHistory(false)} />
         </div>
         <aside className="sidebar-content">
+          <VisualFeed summary={visualSummary} sceneId={sceneId} />
           <TacticalScanner positions={positions} />
         </aside>
       </main>

@@ -29,6 +29,7 @@ This file serves as a persistent context record for AI agents (Gemini CLI, Antig
 
 ## 5. Recent Work (As of June 15, 2026)
 - **Extended Narrative**: Chapter 1 has been significantly expanded. It now includes a convergence at the "Memory Pier," a prison escape sequence, and a new "Archives" section where Wisp is found.
+- **Visual Feed (Illustration Window)**: Added a new "Visual Feed" component that provides stylized, text-based scene reconstructions ("Neural Link" aesthetic) with glitch effects and CRT scanlines.
 - **Archives Sequence**: Introduced new characters/entities like "The Prime Enforcer" and "Shadows."
 - **Archives Theme**: Added a Gold/Royal Blue theme for the Archives section.
 - **Help Resources**: Created `help-me/HOW_TO_RELOAD.md` to assist the user with restarting the dev server and resuming sessions after agent updates.
