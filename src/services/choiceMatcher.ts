@@ -116,6 +116,31 @@ export function resolveChoiceFromTextLocal(scene: Scene, userInput: string): str
     if (choice.id === 'archives_rush_core' && (lowerInput.includes('rush') || lowerInput.includes('core') || lowerInput.includes('memory') || lowerInput.includes('shard'))) {
       score += 0.5;
     }
+    // Chapter 2 choices
+    if (choice.id === 'c2_examine_tray' && (lowerInput.includes('examine') || lowerInput.includes('tray') || lowerInput.includes('look') || lowerInput.includes('food'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_shout' && (lowerInput.includes('shout') || lowerInput.includes('help') || lowerInput.includes('scream') || lowerInput.includes('yell'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_search_self' && (lowerInput.includes('search') || lowerInput.includes('pockets') || lowerInput.includes('check') || lowerInput.includes('feel'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_lie' && (lowerInput.includes('lie') || lowerInput.includes('alone') || lowerInput.includes('nobody'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_honest_amnesia' && (lowerInput.includes('truth') || lowerInput.includes('remember') || lowerInput.includes('forget') || lowerInput.includes('amnesia'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_defiant' && (lowerInput.includes('silent') || lowerInput.includes('nothing') || lowerInput.includes('quiet'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_reveal_memory' && (lowerInput.includes('describe') || lowerInput.includes('man') || lowerInput.includes('vale') || lowerInput.includes('amber'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_hide_memory' && (lowerInput.includes('headache') || lowerInput.includes('pain') || lowerInput.includes('nothing') || lowerInput.includes('hide'))) {
+      score += 0.5;
+    }
 
     if (score > highestScore) {
       highestScore = score;

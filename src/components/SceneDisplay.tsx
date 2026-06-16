@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useGame } from '../context/GameContext';
-import scenes from '../story/chapter1';
+import scenes from '../story';
 import { resolveChoiceFromTextLocal } from '../services/choiceMatcher';
 import type { Scene } from '../story/types';
 import './SceneDisplay.css';

@@ -423,6 +423,7 @@ const scenes: Record<string, Scene> = {
       { speaker: 'system', text: 'TO BE CONTINUED IN CHAPTER TWO.' },
       { speaker: 'system', text: 'Thank you for playing the extended Ghost Line prologue!' },
     ],
+    next: 'c2_awakening',
     positions: [
       { name: 'Aster', x: 8, y: 8 },
       { name: 'Vale', x: 6, y: 8 },

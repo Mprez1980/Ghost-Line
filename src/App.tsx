@@ -3,7 +3,7 @@ import { GameProvider, useGame } from './context/GameContext';
 import SceneDisplay from './components/SceneDisplay';
 import TacticalScanner from './components/TacticalScanner';
 import VisualFeed from './components/VisualFeed';
-import scenes from './story/chapter1';
+import scenes from './story';
 import './App.css';
 
 function GameShell() {
@@ -24,7 +24,7 @@ function GameShell() {
     themeClass = 'theme-terminal';
   } else if (sceneId.startsWith('archives_')) {
     themeClass = 'theme-archives';
-  } else if (sceneId.startsWith('prison_')) {
+  } else if (sceneId.startsWith('prison_') || sceneId.startsWith('c2_')) {
     themeClass = 'theme-prison';
   }
 

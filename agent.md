@@ -28,17 +28,17 @@ This file serves as a persistent context record for AI agents (Gemini CLI, Antig
 - `help-me/`: User guides for project maintenance.
 
 ## 5. Recent Work (As of June 15, 2026)
+- **Chapter 2 Implementation**: Started Chapter 2 with a new "Amnesia Prison" sequence. The player wakes up in a Conclave lockdown cell with no memory and is interrogated by an unknown voice.
+- **Narrative Convergence**: Connected the end of Chapter 1 (Archives) to the start of Chapter 2.
+- **Story Indexing**: Centralized all story chapters into `src/story/index.ts` for easier management and multi-chapter support.
 - **Extended Narrative**: Chapter 1 has been significantly expanded. It now includes a convergence at the "Memory Pier," a prison escape sequence, and a new "Archives" section where Wisp is found.
 - **Visual Feed (Illustration Window)**: Added a new "Visual Feed" component that provides stylized, text-based scene reconstructions ("Neural Link" aesthetic) with glitch effects and CRT scanlines.
-- **Archives Sequence**: Introduced new characters/entities like "The Prime Enforcer" and "Shadows."
-- **Archives Theme**: Added a Gold/Royal Blue theme for the Archives section.
-- **Help Resources**: Created `help-me/HOW_TO_RELOAD.md` to assist the user with restarting the dev server and resuming sessions after agent updates.
-- **Tactical Scanner Expansion**: Updated `CharacterPosition` types to include `Enforcer`, `ArchiveNode`, `MemoryCore`, and `Barrier`.
 
 ## 6. Current Status
 - **Dev Server**: Running on `http://localhost:5173/`.
 - **Build Status**: Passing (last verified via `npm run build`).
-- **Next Steps**: Continue the story into Chapter 2 or refine the combat mechanics for the Prime Enforcer encounter.
+- **Story State**: Chapter 1 is complete; Chapter 2 (Part One) is now playable.
+- **Next Steps**: Continue the story from Rook's arrival in the cell and delve into the mystery of Subject 704's forgotten past.
 
 ## 7. Instructions for Agents
 - **Maintain Style**: Use the existing descriptive, slightly noir/cyberpunk tone for narration and dialogue.

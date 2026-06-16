@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { GameState, SceneLine } from '../story/types';
-import scenes from '../story/chapter1';
+import scenes from '../story';
 
 interface GameContextValue {
   state: GameState;
