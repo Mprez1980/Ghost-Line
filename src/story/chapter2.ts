@@ -30,9 +30,9 @@ const scenes: Record<string, Scene> = {
       { speaker: 'narration', text: 'A metallic slot at the bottom of the door slides open. A small tray is pushed through.' },
     ],
     choices: [
-      { id: 'c2_examine_tray', label: 'Examine the tray', next: 'c2_the_voice', keywords: ['examine', 'tray', 'look', 'food', 'check'] },
-      { id: 'c2_shout', label: 'Shout for help', next: 'c2_the_voice', keywords: ['shout', 'help', 'scream', 'yell', 'call'] },
-      { id: 'c2_search_self', label: 'Search your pockets', next: 'c2_the_voice', keywords: ['search', 'pockets', 'check', 'feel', 'self'] }
+      { id: 'c2_examine_tray', label: 'Examine the tray', next: 'c2_the_voice', keywords: ['examine', 'tray', 'look', 'food', 'check'], actionType: 'Act' },
+      { id: 'c2_shout', label: 'Shout for help', next: 'c2_the_voice', keywords: ['shout', 'help', 'scream', 'yell', 'call'], actionType: 'Speak' },
+      { id: 'c2_search_self', label: 'Search your pockets', next: 'c2_the_voice', keywords: ['search', 'pockets', 'check', 'feel', 'self'], actionType: 'Act' }
     ],
     positions: [
       { name: 'Aster', x: 8, y: 8 },

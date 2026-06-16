@@ -38,4 +38,6 @@ export interface Scene {
 export interface GameState {
   currentSceneId: string;
   choiceHistory: string[]; // choice IDs made so far
+  playerPosition: { x: number; y: number } | null;
+  isMovementMode: boolean;
 }

@@ -3,6 +3,7 @@ import { GameProvider, useGame } from './context/GameContext';
 import SceneDisplay from './components/SceneDisplay';
 import TacticalScanner from './components/TacticalScanner';
 import VisualFeed from './components/VisualFeed';
+import ActionPanel from './components/ActionPanel';
 import scenes from './story';
 import './App.css';
 
@@ -59,6 +60,7 @@ function GameShell() {
       <main className="game-layout">
         <div className="main-content">
           <SceneDisplay showHistory={showHistory} onCloseHistory={() => setShowHistory(false)} />
+          <ActionPanel />
         </div>
         <aside className="sidebar-content">
           <VisualFeed summary={visualSummary} sceneId={sceneId} />

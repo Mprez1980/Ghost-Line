@@ -28,6 +28,7 @@ This file serves as a persistent context record for AI agents (Gemini CLI, Antig
 - `help-me/`: User guides for project maintenance.
 
 ## 5. Recent Work (As of June 15, 2026)
+- **Action Panel & Dynamic Movement**: Added a new interaction panel with Speak, Move, Act, and Fight buttons. Implemented real-time player movement on the 16x16 grid using arrow keys. Buttons use proximity logic to trigger dialogue, interactions, or combat with the closest entity.
 - **Chapter 2 Implementation**: Started Chapter 2 with a new "Amnesia Prison" sequence. The player wakes up in a Conclave lockdown cell with no memory and is interrogated by an unknown voice.
 - **Narrative Convergence**: Connected the end of Chapter 1 (Archives) to the start of Chapter 2.
 - **Story Indexing**: Centralized all story chapters into `src/story/index.ts` for easier management and multi-chapter support.

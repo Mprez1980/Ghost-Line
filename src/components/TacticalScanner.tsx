@@ -1,3 +1,4 @@
+import { useGame } from '../context/GameContext';
 import type { CharacterPosition } from '../story/types';
 import './TacticalScanner.css';
 
@@ -6,8 +7,17 @@ interface TacticalScannerProps {
 }
 
 export default function TacticalScanner({ positions = [] }: TacticalScannerProps) {
+  const { state } = useGame();
   const size = 16;
   const cells = [];
+
+  // Override Aster's position with dynamic state if available
+  const dynamicPositions = positions.map(pos => {
+    if (pos.name === 'Aster' && state.playerPosition) {
+      return { ...pos, x: state.playerPosition.x, y: state.playerPosition.y };
+    }
+    return pos;
+  });
 
   // y-axis goes from 15 (top) down to 0 (bottom) so coordinates align like a Cartesian plane
   for (let y = size - 1; y >= 0; y--) {
@@ -17,7 +27,7 @@ export default function TacticalScanner({ positions = [] }: TacticalScannerProps
   }
 
   function getEntityAt(x: number, y: number) {
-    return positions.find(pos => pos.x === x && pos.y === y);
+    return dynamicPositions.find(pos => pos.x === x && pos.y === y);
   }
 
   function getEntityInitial(name: string): string {

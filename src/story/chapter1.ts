@@ -40,8 +40,8 @@ const scenes: Record<string, Scene> = {
       { speaker: 'Aster (internal)', text: 'Both of them are right. Both of them are wrong. But I have to choose.' },
     ],
     choices: [
-      { id: 'follow_vale', label: 'Follow Vale', next: 'vale_scene3', keywords: ['vale', 'fast', 'quick', 'hurry', 'daughter', 'kid', 'run', 'speed'] },
-      { id: 'follow_rook', label: 'Follow Rook', next: 'rook_scene3', keywords: ['rook', 'smart', 'slow', 'intel', 'plan', 'strategy', 'think'] },
+      { id: 'follow_vale', label: 'Follow Vale', next: 'vale_scene3', keywords: ['vale', 'fast', 'quick', 'hurry', 'daughter', 'kid', 'run', 'speed'], actionType: 'Speak' },
+      { id: 'follow_rook', label: 'Follow Rook', next: 'rook_scene3', keywords: ['rook', 'smart', 'slow', 'intel', 'plan', 'strategy', 'think'], actionType: 'Speak' },
     ],
     positions: [
       { name: 'Aster', x: 8, y: 8 },
@@ -166,9 +166,9 @@ const scenes: Record<string, Scene> = {
       { speaker: 'narration', text: 'Aster feels the shard vibrating violently. The Enforcers raise their containment weapons.' },
     ],
     choices: [
-      { id: 'combat_fight', label: "Fight back beside Vale", next: 'combat_defeat', keywords: ['fight', 'attack', 'strike', 'vale', 'battle', 'weapons', 'hit'] },
-      { id: 'combat_flee', label: "Attempt to escape with Rook", next: 'combat_defeat', keywords: ['flee', 'run', 'escape', 'rook', 'exit', 'retreat', 'avoid'] },
-      { id: 'combat_surrender', label: "Shield the Shard's energy core", next: 'combat_defeat', keywords: ['shield', 'protect', 'shard', 'surrender', 'guard', 'energy'] }
+      { id: 'combat_fight', label: "Fight back beside Vale", next: 'combat_defeat', keywords: ['fight', 'attack', 'strike', 'vale', 'battle', 'weapons', 'hit'], actionType: 'Fight' },
+      { id: 'combat_flee', label: "Attempt to escape with Rook", next: 'combat_defeat', keywords: ['flee', 'run', 'escape', 'rook', 'exit', 'retreat', 'avoid'], actionType: 'Move' },
+      { id: 'combat_surrender', label: "Shield the Shard's energy core", next: 'combat_defeat', keywords: ['shield', 'protect', 'shard', 'surrender', 'guard', 'energy'], actionType: 'Act' }
     ],
     positions: [
       { name: 'Aster', x: 8, y: 6 },
@@ -215,8 +215,8 @@ const scenes: Record<string, Scene> = {
       { speaker: 'Rook', text: '"At least we are alive. But this is a high-security Conclave cage. We need to disable the console to escape."' },
     ],
     choices: [
-      { id: 'prison_brute_force', label: "Force the console open (Vale's way)", next: 'prison_vale_path', keywords: ['force', 'brute', 'hit', 'smash', 'break', 'vale', 'disable', 'destroy', 'physically'] },
-      { id: 'prison_analyze', label: "Scan the console's energy flow (Rook's way)", next: 'prison_rook_path', keywords: ['analyze', 'scan', 'look', 'examine', 'rook', 'energy', 'console', 'diagnose'] },
+      { id: 'prison_brute_force', label: "Force the console open (Vale's way)", next: 'prison_vale_path', keywords: ['force', 'brute', 'hit', 'smash', 'break', 'vale', 'disable', 'destroy', 'physically'], actionType: 'Act' },
+      { id: 'prison_analyze', label: "Scan the console's energy flow (Rook's way)", next: 'prison_rook_path', keywords: ['analyze', 'scan', 'look', 'examine', 'rook', 'energy', 'console', 'diagnose'], actionType: 'Act' },
     ],
     positions: [
       { name: 'Aster', x: 8, y: 8 },
