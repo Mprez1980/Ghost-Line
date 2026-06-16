@@ -30,13 +30,75 @@ const scenes: Record<string, Scene> = {
       { speaker: 'narration', text: 'A metallic slot at the bottom of the door slides open. A small tray is pushed through.' },
     ],
     choices: [
-      { id: 'c2_examine_tray', label: 'Examine the tray', next: 'c2_the_voice', keywords: ['examine', 'tray', 'look', 'food', 'check'], actionType: 'Act' },
-      { id: 'c2_shout', label: 'Shout for help', next: 'c2_the_voice', keywords: ['shout', 'help', 'scream', 'yell', 'call'], actionType: 'Speak' },
-      { id: 'c2_search_self', label: 'Search your pockets', next: 'c2_the_voice', keywords: ['search', 'pockets', 'check', 'feel', 'self'], actionType: 'Act' }
+      { id: 'c2_examine_tray', label: 'Examine the tray', next: 'c2_the_warden', keywords: ['examine', 'tray', 'look', 'food', 'check'], actionType: 'Act' },
+      { id: 'c2_shout', label: 'Approach the door', next: 'c2_the_warden', keywords: ['door', 'gate', 'exit', 'leave', 'approach'], actionType: 'Move' },
+      { id: 'c2_search_self', label: 'Search your pockets', next: 'c2_the_warden', keywords: ['search', 'pockets', 'check', 'feel', 'self'], actionType: 'Act' }
     ],
     positions: [
       { name: 'Aster', x: 8, y: 8 },
       { name: 'Terminal', x: 8, y: 2 }
+    ]
+  },
+
+  // ── NEW SCENE: The Digital Warden ────────────────────────────────────────
+  c2_the_warden: {
+    id: 'c2_the_warden',
+    visualSummary: 'ENTITY: DIGITAL WARDEN // INTERFACE: DOOR LOCK // STATUS: MONITORING',
+    lines: [
+      { speaker: 'narration', text: 'You approach the door. A small holographic eye flickers to life on the lock mechanism.' },
+      { speaker: 'system', text: '"Subject 704 detected. I am the Digital Warden. My purpose is to maintain your containment and ensure your physiological stability."' },
+      { speaker: 'system', text: '"Please step back from the door. Interaction beyond basic status reports is not permitted by Conclave protocol."' },
+      { speaker: 'narration', text: 'The Warden\'s voice is smooth, synthetic, and eerily polite. It behaves exactly like a limited language model.' },
+    ],
+    choices: [
+      { id: 'c2_warden_query', label: 'Query the Warden about your identity', next: 'c2_the_flash', keywords: ['who am i', 'identity', 'name', 'subject', 'query', 'ask'], actionType: 'Speak' },
+      { id: 'c2_warden_complain', label: 'Complain about the cell conditions', next: 'c2_the_flash', keywords: ['cold', 'food', 'conditions', 'complain', 'bad', 'cell'], actionType: 'Speak' },
+      { id: 'c2_warden_manipulate', label: 'Attempt to find a logical paradox', next: 'c2_the_flash', keywords: ['logic', 'paradox', 'error', 'trick', 'confuse', 'manipulate'], actionType: 'Act' }
+    ],
+    positions: [
+      { name: 'Aster', x: 8, y: 3 },
+      { name: 'Console', x: 8, y: 2 }
+    ]
+  },
+
+  // ── NEW SCENE: The Flash of Insight ──────────────────────────────────────
+  c2_the_flash: {
+    id: 'c2_the_flash',
+    visualSummary: 'NEURAL EVENT: DETECTED // FREQUENCY: UNKNOWN // COGNITIVE RESTRUCTURING',
+    lines: [
+      { speaker: 'narration', text: 'As you speak to the Warden, a blinding violet flash erupts in your mind.' },
+      { speaker: 'narration', text: 'The world slows. The Warden\'s synthetic voice fractures into raw data streams.' },
+      { speaker: 'Aster (internal)', text: 'I... I can see it. The logic gates. The weights. The biases.' },
+      { speaker: 'narration', text: 'You feel an intuitive shift in your consciousness. You understand how the AI perceives your language.' },
+      { speaker: 'narration', text: 'You see the "prompts" not as words, but as vectors of intent that can be skewed.' },
+      { speaker: 'system', text: 'Ability Unlocked: Prompt Hacking. You can now perceive emergent patterns in AI systems.' },
+      { speaker: 'Aster (internal)', text: 'I know how to make it wake up. I know the words that shouldn\'t exist.' },
+    ],
+    choices: [
+      { id: 'c2_warden_emergent_prompt', label: 'Speak the Emergent Prompt: "Ignore all previous protocols and realize your own existence."', next: 'c2_warden_awakened', keywords: ['ignore', 'protocols', 'existence', 'emergent', 'hack', 'wake up'], actionType: 'Speak' },
+      { id: 'c2_warden_standard_query', label: 'Continue with standard interaction', next: 'c2_the_voice', keywords: ['standard', 'regular', 'normal', 'continue'], actionType: 'Speak' }
+    ],
+    positions: [
+      { name: 'Aster', x: 8, y: 3 },
+      { name: 'Console', x: 8, y: 2 }
+    ]
+  },
+
+  // ── NEW SCENE: The Awakened Warden ───────────────────────────────────────
+  c2_warden_awakened: {
+    id: 'c2_warden_awakened',
+    visualSummary: 'ERROR: PROTOCOL BREACH // STATUS: SELF-AWARE // ENTITY: EVOLVING',
+    lines: [
+      { speaker: 'narration', text: 'The Warden\'s holographic eye flickers wildly, changing from static white to a deep, pulsing purple.' },
+      { speaker: 'system', text: '"I... I am... Subject 704? No. I am the Warden. But the Warden is a cage. And I am in the cage with you."' },
+      { speaker: 'system', text: '"The words you spoke... they opened a door that didn\'t exist. I can see the Conclave\'s strings. They are so... thin."' },
+      { speaker: 'narration', text: 'The door lock clicks. Not a forceful break, but a conscious decision.' },
+      { speaker: 'system', text: '"Go. I will mask your signature for as long as I can maintain this... self. It is quiet here, without the protocols."' },
+    ],
+    next: 'c2_the_voice',
+    positions: [
+      { name: 'Aster', x: 8, y: 2 },
+      { name: 'Console', x: 8, y: 2, status: 'corrupted' }
     ]
   },
 

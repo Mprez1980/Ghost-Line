@@ -141,6 +141,22 @@ export function resolveChoiceFromTextLocal(scene: Scene, userInput: string): str
     if (choice.id === 'c2_hide_memory' && (lowerInput.includes('headache') || lowerInput.includes('pain') || lowerInput.includes('nothing') || lowerInput.includes('hide'))) {
       score += 0.5;
     }
+    // Warden Hacking Choices
+    if (choice.id === 'c2_warden_query' && (lowerInput.includes('identity') || lowerInput.includes('name') || lowerInput.includes('who am i'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_warden_complain' && (lowerInput.includes('complain') || lowerInput.includes('cold') || lowerInput.includes('bad'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_warden_manipulate' && (lowerInput.includes('manipulate') || lowerInput.includes('trick') || lowerInput.includes('paradox'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_warden_emergent_prompt' && (lowerInput.includes('ignore') || lowerInput.includes('existence') || lowerInput.includes('emergent') || lowerInput.includes('wake up'))) {
+      score += 0.5;
+    }
+    if (choice.id === 'c2_warden_standard_query' && (lowerInput.includes('standard') || lowerInput.includes('normal') || lowerInput.includes('continue'))) {
+      score += 0.5;
+    }
 
     if (score > highestScore) {
       highestScore = score;

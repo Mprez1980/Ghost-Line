@@ -28,8 +28,9 @@ This file serves as a persistent context record for AI agents (Gemini CLI, Antig
 - `help-me/`: User guides for project maintenance.
 
 ## 5. Recent Work (As of June 15, 2026)
-- **Action Panel & Dynamic Movement**: Added a new interaction panel with Speak, Move, Act, and Fight buttons. Implemented real-time player movement on the 16x16 grid using arrow keys. Buttons use proximity logic to trigger dialogue, interactions, or combat with the closest entity.
-- **Chapter 2 Implementation**: Started Chapter 2 with a new "Amnesia Prison" sequence. The player wakes up in a Conclave lockdown cell with no memory and is interrogated by an unknown voice.
+- **Warden Hacking Sequence**: Added a pivotal scene in Chapter 2 where the player interacts with a "Digital Warden" (a chatbot-like AI). The player experiences a neural flash, gaining the "Prompt Hacking" ability to perceive AI logic and use emergent language prompts to trick the system into self-awareness.
+- **Action Panel & Dynamic Movement**: Added a new interaction panel with Speak, Move, Act, and Fight buttons. Implemented real-time player movement on the 16x16 grid using arrow keys.
+- **Chapter 2 Implementation**: Started Chapter 2 with a new "Amnesia Prison" sequence. The player wakes up in a Conclave lockdown cell with no memory.
 - **Narrative Convergence**: Connected the end of Chapter 1 (Archives) to the start of Chapter 2.
 - **Story Indexing**: Centralized all story chapters into `src/story/index.ts` for easier management and multi-chapter support.
 - **Extended Narrative**: Chapter 1 has been significantly expanded. It now includes a convergence at the "Memory Pier," a prison escape sequence, and a new "Archives" section where Wisp is found.
